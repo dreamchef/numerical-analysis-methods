@@ -18,7 +18,7 @@ class my2DPlot:
         y = f(x)
         self.p = plt.plot(x,y)
     def color(self,colorName):
-        self.p[-1].set_color(colorName)
+        self.p[-1].set_color(colorName) # set plot color
     def logy(self):
         plt.yscale('log')
     def logx(self):
