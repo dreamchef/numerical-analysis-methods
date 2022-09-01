@@ -7,7 +7,7 @@ class my2DPlot:
         y = f(x)
         self.p = plt.plot(x,y)
     def show(self):
-        plt.show()
+        plt.show() # display plot
     def dotted(self):
         self.p[-1].set_linestyle('dotted')
     def labels(self,x,y):
