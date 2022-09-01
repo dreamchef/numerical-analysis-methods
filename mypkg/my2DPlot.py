@@ -11,7 +11,7 @@ class my2DPlot:
     def dotted(self):
         self.p[-1].set_linestyle('dotted')
     def labels(self,x,y):
-        plt.xlabel(x)
+        plt.xlabel(x) # set the x label to the argument
         plt.ylabel(y)
     def addPlot(self,f):
         x = self.p[0].get_data()[0]
