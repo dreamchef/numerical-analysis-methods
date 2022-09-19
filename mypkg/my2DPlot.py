@@ -25,3 +25,5 @@ class my2DPlot:
         plt.xscale('log')
     def savefig(self,fileName):
         plt.savefig(fileName)
+    def grid(self):
+        plt.grid()

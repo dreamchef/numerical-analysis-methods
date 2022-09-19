@@ -140,6 +140,7 @@ def bisection(f,a,b,tol,Nmax):
       if (abs(b-a)<tol):
         astar = a
         ier =0
+        print('number of iterations needed: ',count)
         return [astar, ier]
       
       count = count +1
