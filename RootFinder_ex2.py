@@ -1,4 +1,4 @@
-from Iteration1D import Iteration1D
+from mypkg.Iteration1D import Iteration1D
 import numpy as np
 
 # specify function and method
