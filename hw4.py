@@ -50,7 +50,7 @@ find.Nmax = Nmax
 
 find.root()
 root = find.pstar
-print("Root from bisection method (problem 1b) is    ",root)
+print("1B: Root from bisection method (problem 1b) is    ",root)
 
 # Part C:
 find = Iteration1D(f,'newton')
@@ -62,7 +62,7 @@ find.Nmax = Nmax
 
 find.root()
 root = find.pstar
-print("Root with Newton's from initial guess,", find.p0, "is",root)
+print("1C: Root with Newton's from initial guess,", find.p0, "is",root)
 
 # Starting with x_initial = x_bar
 find.p0 = 1
@@ -72,12 +72,22 @@ print("with x_i = x_bar:",root)
 
 # Problem 4
 f = lambda x: np.exp(3*x) - 27*x**6 + 27*x**4*np.exp(x) - 9*x**2*np.exp(2*x)
-fp = 3*np.exp(3*x)-162*x**5+27*(4*x**3*np.exp(x)+np.exp(x)*x**4)-9*(2*x*np.exp(2*x)+np.exp(2*x)*2*x**2)
+fp = lambda x: 3*np.exp(3*x)-162*x**5+27*(4*x**3*np.exp(x)+np.exp(x)*x**4)-9*(2*x*np.exp(2*x)+np.exp(2*x)*2*x**2)
 
 # Root from Newton's
+find = Iteration1D(f,'newton')
+find.f = f
+find.fp = fp
+find.p0 = 4
+find.tol = 1e-12
+find.Nmax = 1000
+
+find.root()
+root = find.pstar
+print("4(i): Root with Newton's from initial guess,", find.p0, "is",root)
 
 # Order
-#order = compute_order(root,x)
+order = compute_order(root,x)
 
 # Modified Newton's
 
@@ -87,3 +97,6 @@ fp = 3*np.exp(3*x)-162*x**5+27*(4*x**3*np.exp(x)+np.exp(x)*x**4)-9*(2*x*np.exp(2
 
 # Order
 
+# Problem 5
+f = lambda x: x**6 - x - 1
+fp = 6*x**5 - 1

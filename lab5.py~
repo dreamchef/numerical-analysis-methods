@@ -1,0 +1,6 @@
+# libs
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import special
+from mypkg.Iteration1D import Iteration1D
+from sympy import *
