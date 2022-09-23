@@ -5,6 +5,7 @@ from scipy import special
 from mypkg.Iteration1D import Iteration1D
 from sympy import *
 
+# functions
 def bisection(a,b,tol,Nmax):
     """
     Inputs:
@@ -116,6 +117,7 @@ def newton(p0,tol,Nmax):
         info = 1
     return [p,pstar,info,it]
 
+# main
 
 [astar,ier] = bisection(2,4.5,1e-12,100)
 [p,pstar,info,it] = newton(astar,1e-12,100)
