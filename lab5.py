@@ -5,10 +5,10 @@ from scipy import special
 from mypkg.Iteration1D import Iteration1D
 from sympy import *
 
-def bisection(f,a,b,tol,Nmax):
+def bisection(a,b,tol,Nmax):
     """
     Inputs:
-      f,a,b       - function and endpoints of initial interval
+      a,b       - endpoints of initial interval
       tol, Nmax   - bisection stops when interval length < tol
                   - or if Nmax iterations have occured
     Returns:
@@ -20,9 +20,18 @@ def bisection(f,a,b,tol,Nmax):
             - ier = 3 => other error ==== You can explain
     """
 
+    
+    '''
+     function and derivatives
+    '''
+    f   = lambda x: np.exp(x**2 + 7*x - 30) - 1
+    fp  = lambda x: np.exp(x**2 + 7*x - 30) * (2*x + 7)
+    fpp = lambda x: np.exp(x**2 + 7*x - 30) * (4*x**2 + 28*x + 51)
+
     '''
      first verify there is a root we can find in the interval
     '''
+    
     fa = f(a); fb = f(b);
     if (fa*fb>0):
        ier = 1
@@ -41,11 +50,6 @@ def bisection(f,a,b,tol,Nmax):
       astar = b
       ier = 0
       return [astar, ier]
-
-    '''
-     derivatives of the function
-    '''
-    
 
     count = 0
     while (count < Nmax):
@@ -67,7 +71,7 @@ def bisection(f,a,b,tol,Nmax):
         ier = 3
         return [astar, ier]
 
-      if (abs(b-a)<tol):
+      if (abs(f(c)*fpp(c)/(fp(c))**2)<1):
         astar = a
         ier =0
         print('number of iterations needed: ',count)
@@ -78,3 +82,5 @@ def bisection(f,a,b,tol,Nmax):
     astar = a
     ier = 2
     return [astar,ier] 
+
+bisection(2,4.5,1e-12,1000)
