@@ -34,53 +34,88 @@ def bisection(a,b,tol,Nmax):
     
     fa = f(a); fb = f(b);
     if (fa*fb>0):
-       ier = 1
-       astar = a
-       return [astar, ier]
+        ier = 1
+        astar = a
+        return [astar, ier]
 
     '''
      verify end point is not a root
     '''
     if (fa == 0):
-      astar = a
-      ier =0
-      return [astar, ier]
+        astar = a
+        ier =0
+        return [astar, ier]
 
     if (fb ==0):
-      astar = b
-      ier = 0
-      return [astar, ier]
-
-    count = 0
-    while (count < Nmax):
-      c = 0.5*(a+b)
-      fc = f(c)
-
-      if (fc ==0):
-        astar = c
+        astar = b
         ier = 0
         return [astar, ier]
 
-      if (fa*fc<0):
-        b = c
-      elif (fb*fc<0):
-        a = c
-        fa = fc
-      else:
-        astar = c
-        ier = 3
-        return [astar, ier]
-
-      if (abs(f(c)*fpp(c)/(fp(c))**2)<1):
-        astar = a
-        ier =0
-        print('number of iterations needed: ',count)
-        return [astar, ier]
-      
-      count = count +1
-
+    count = 0
+    while (count < Nmax):
+        c = 0.5*(a+b)
+        fc = f(c)
+        
+        if (fc ==0):
+            astar = c
+            ier = 0
+            return [astar, ier]
+        
+        if (fa*fc<0):
+            b = c
+        elif (fb*fc<0):
+            a = c
+            fa = fc
+        else:
+            astar = c
+            ier = 3
+            return [astar, ier]
+        
+        if (abs(f(c)*fpp(c)/(fp(c))**2) < 1):
+            astar = a
+            ier =0
+            return [astar, ier]
+        
+        count = count +1
+        
     astar = a
     ier = 2
-    return [astar,ier] 
+    return [astar,ier]
 
-bisection(2,4.5,1e-12,1000)
+def newton(p0,tol,Nmax):
+    """
+    Newton iteration.
+    
+  Inputs:
+    f,fp - function and derivative
+    p0   - initial guess for root
+    tol  - iteration stops when p_n,p_{n+1} are within tol
+    Nmax - max number of iterations
+    Returns:
+    p     - an array of the iterates
+    pstar - the last iterate
+    info  - success message
+          - 0 if we met tol
+          - 1 if we hit Nmax iterations (fail)
+     
+  """
+    f   = lambda x: np.exp(x**2 + 7*x - 30) - 1
+    fp  = lambda x: np.exp(x**2 + 7*x - 30) * (2*x + 7)
+    
+    p = np.zeros(Nmax+1);
+    p[0] = p0
+    for it in range(Nmax):
+        p1 = p0-f(p0)/fp(p0)
+        p[it+1] = p1
+        if (abs(p1-p0) < tol):
+            pstar = p1
+            info = 0
+            return [p,pstar,info,it]
+        p0 = p1
+        pstar = p1
+        info = 1
+    return [p,pstar,info,it]
+
+
+[astar,ier] = bisection(2,4.5,1e-12,100)
+[p,pstar,info,it] = newton(astar,1e-12,100)
