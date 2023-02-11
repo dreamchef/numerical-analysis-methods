@@ -37,42 +37,21 @@ def compute_order(x,xstar):
   diff2 = np.abs(x[0:-1]-xstar)
   # linear fit to log of differences
   fit = np.polyfit(np.log(diff2.flatten()),np.log(diff1.flatten()),1)
-  print('the order equation is')
   print('log(|p_{n+1}-p|) = log(lambda) + alpha*log(|p_n-p|) where')
   print('lambda = ' + str(np.exp(fit[1])))
   print('alpha = ' + str(fit[0]))
   return [fit,diff1,diff2]
 
-def aitkens(x,xstar,tol):
-  count = len(x)
-  hat_x = np.zeros((count-2,1))
-  for n in range(0,count-2):
-    # compute new iterates using aitkens formula
-    hat_x[n] = x[n] - (x[n+1]-x[n])**2/(x[n+2]-2*x[n+1]+x[n])  
-    # return if we're less than tol
-    if np.abs(hat_x[n]-xstar) < tol:
-      return hat_x[0:n+1]
-  return hat_x  
-
 ########################################################
 
-g = lambda x: np.power(10/(x+4),1.0/2.0)
-[xstar,x,ier,count] = fixedpt(g,1.5,1e-10,100)
-hat_x = aitkens(x,xstar,1e-10)
+# define fixed point iteration functions
+f1 = lambda x: x * (1 + (7 - x**5)/x**2)**3
+f2 = lambda x: x - (x**5 - 7)/x**2
+f3 = lambda x: x - (x**5 - 7)/(5*x**4)
+f4 = lambda x: x - (x**5 - 7)/12
+fcts = [f1,f2,f3,f4]
 
-# compute the convergence rate and constant
-print('\nrate and constants for fixedpt:')
-[fit,diff1,diff2] = compute_order(x,xstar)
-print('\nrate and constants for aitkens')
-[fit1,diff11,diff21] = compute_order(hat_x,xstar)
-# plot the data
-plt.loglog(diff2,diff1,'ro',label='fixedpt data')
-plt.loglog(diff21,diff11,'gx',label='aitkens data')
-# plot the fits
-plt.loglog(diff2,np.exp(fit[1]+fit[0]*np.log(diff2)),'r-',label='fixedpt fit')
-plt.loglog(diff21,np.exp(fit1[1]+fit1[0]*np.log(diff21)),'g-',label='aitkens fit')
-# label the plot axes and create legend
-plt.xlabel('$|p_{n}-p|$')
-plt.ylabel('$|p_{n+1}-p|$')
-plt.legend()
-plt.show()
+for fct in fcts:
+  [xstar,x,ier,count] = fixedpt(fct,1.5,1e-10,100)
+  # compute the convergence rate and constant
+  [fit,diff1,diff2] = compute_order(x,xstar)
