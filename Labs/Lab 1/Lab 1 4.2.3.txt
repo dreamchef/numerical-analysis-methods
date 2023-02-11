@@ -1,0 +1,1 @@
+The numpy versions of both commands seems to be faster.
