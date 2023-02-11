@@ -1,0 +1,10 @@
+1. Impossible to find x = 0 because not an interval.
+	- a. 0.9999...
+	- b. 1.0000...
+	- c. 0.9999...
+
+2. Determine speed of convergence from order formula
+	- these methods actually converge at aprox 1.47.
+	- they converge from fastest to slowest in this order: D C B A.
+
+3. The fixed point iteration code demonstrates that the solutions are correct and the stopping tolerance closely explore the accuracy of each method because we run into overflow errors for each. For the given tolerance change this could impact wether my answers ear correct because of the oscillatory behaviors.

@@ -1,4 +1,6 @@
 
+# Problems 2 and 3
+
 f1 = lambda x: x * (1 + (7 - x**5)/x**2)**3
 f2 = lambda x: x - (x**5 - 7)/x**2
 f3 = lambda x: x - (x**5 - 7)/(5*x**4)

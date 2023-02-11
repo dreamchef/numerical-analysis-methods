@@ -43,27 +43,13 @@ def compute_order(x,xstar):
   print('alpha = ' + str(fit[0]))
   return [fit,diff1,diff2]
 
-def aitkens(x,xstar,tol):
-  count = len(x)
-  hat_x = np.zeros((count-2,1))
-  for n in range(0,count-2):
-    # compute new iterates using aitkens formula
-    hat_x[n] = x[n] - (x[n+1]-x[n])**2/(x[n+2]-2*x[n+1]+x[n])  
-    # return if we're less than tol
-    if np.abs(hat_x[n]-xstar) < tol:
-      return hat_x[0:n+1]
-  return hat_x  
-
 ########################################################
 
 # define fixed point iteration functions
-f1 = lambda x: x * (1 + (7 - x**5)/x**2)**3
-f2 = lambda x: x - (x**5 - 7)/x**2
-f3 = lambda x: x - (x**5 - 7)/(5*x**4)
-f4 = lambda x: x - (x**5 - 7)/12
-fcts = [f1,f2,f3,f4]
+f1 = lambda x: np.sqrt((x*4 - 3)/3)
+fcts = [f1]
 
 for fct in fcts:
-  [xstar,x,ier,count] = fixedpt(fct,1,1e-10,3)
+  [xstar,x,ier,count] = fixedpt(fct,1,1e-10,100)
   # compute the convergence rate and constant
   [fit,diff1,diff2] = compute_order(x,xstar)
