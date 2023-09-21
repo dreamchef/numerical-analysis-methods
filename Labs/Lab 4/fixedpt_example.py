@@ -17,16 +17,12 @@ def driver():
 
 # test f1 '''
      x0 = 0.0
-     x,xstar = fixedpt(f1,x0,tol,Nmax)
-     print(order_convergence(x,xstar))
-     # print(x)
-    
-#test f2 '''
-     x0 = 0.0
-     [x,xstar] = fixedpt(f2,x0,tol,Nmax)
+     x = fixedpt(f1,x0,tol,Nmax)
+     x = aitkens(x)
+     print(x)
      # print(x)
 
-# define routines
+# define routitnes
 def fixedpt(f,x0,tol,Nmax):
 
     ''' x0 = initial guess''' 
@@ -52,7 +48,7 @@ def fixedpt(f,x0,tol,Nmax):
 
     xstar = x1
     ier = 1
-    return x,star
+    return x
 
 def order_convergence(x,xstar):
 
@@ -70,6 +66,15 @@ def order_convergence(x,xstar):
           orders.append(m.log(ratios[i],ratios[i-1]))
 
      return sum(orders)/len(orders)
+
+def aitkens(x):
+     for i in range(len(x)-2):
+          x[i] = x[i] - ((x[i+1]-x[i])**2)/(x[i+2]-2*x[i+1]+x[i])
+
+
+     return x
+
+
           
           
      
