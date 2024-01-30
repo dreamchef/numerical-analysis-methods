@@ -12,3 +12,6 @@ Repo
 -Code file
 -Code file
 	...
+	
+	
+Codes that are likely to be re-used are stored in the main folder because they don't belong to any specific assignments.
