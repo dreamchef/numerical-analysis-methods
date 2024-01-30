@@ -14,4 +14,4 @@ Repo
 	...
 	
 	
-Codes that are likely to be re-used are stored in the main folder because they don't belong to any specific assignments.
+Codes that are likely to be re-used are stored in the main folder because they don't belong to any specific assignments. I'll basically be creating my own package for the course in this way.
