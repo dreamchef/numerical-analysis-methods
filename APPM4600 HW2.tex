@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, graphicx}
+
+\title{APPM 4600 \\ Homework 2}
+\author{Dani Lisle | STID:109 97 2839}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Part a}
+
+Given the binomial expansion,
+\begin{equation*}
+(1 + x)^n = 1 + n x + \frac{n(n-1)}{2!}x^2 + \ldots
+\end{equation*}
+As \(x \rightarrow 0\), the higher-order terms grow in total at a significantly lower rate then $x$, so we have
+\begin{equation*}
+(1 + x)^n = 1 + n x + o(x).
+\end{equation*}
+
+\newpage
+
+\subsection*{Part b}
+
+To show that $x \sin(\sqrt{x}) = O(x^{3/2})$ as $x \rightarrow 0$, we consider the function $f(x) = x \sin(\sqrt{x})$ and compare its growth rate to that of $g(x) = x^{3/2}$. We evaluate the derivatives of both functions:
+
+\[
+f'(x) = \frac{d}{dx}\left( x \sin(\sqrt{x}) \right) = \frac{\sqrt{x} \cos(\sqrt{x})}{2} + \sin(\sqrt{x})
+\]
+
+\[
+g'(x) = \frac{d}{dx}\left( x^{3/2} \right) = 1.5x^{0.5}
+\]
+
+We then examine the limit of the ratio of these derivatives as $x$ approaches 0:
+
+\[
+\lim_{x \to 0} \frac{f'(x)}{g'(x)} = \lim_{x \to 0} \frac{\frac{\sqrt{x} \cos(\sqrt{x})}{2} + \sin(\sqrt{x})}{1.5x^{0.5}}
+\]
+
+Evaluating this limit yields:
+
+\[
+\lim_{x \to 0} \frac{f'(x)}{g'(x)} = 1
+\]
+
+This result indicates that the growth rate of $f(x)$ is comparable to that of $g(x)$ as $x$ approaches 0. Additionally, $f$'s growth slows as $x$ increases close to $0$, so $x \sin(\sqrt{x}) = O(x^{3/2})$ as $x \rightarrow 0$.
+
+\subsection*{Part c}
+
+To show that \(e^{-t} = o\left(\frac{1}{t^2}\right)\) as \(t \rightarrow \infty\), we evaluate the limit of the ratio of \(e^{-t}\) to \(\frac{1}{t^2}\) as \(t\) approaches infinity:
+
+\[
+\lim_{t \to \infty} \frac{e^{-t}}{\frac{1}{t^2}} =  \lim_{t \to \infty} \frac{t^2}{e^t} = \lim_{t \to \infty} \frac{t^2}{e^t} = \lim_{t \to \infty} \frac{2}{e^t} = 0
+\]
+
+After repeated applications of L'Hopital's Rule, the exponential term \(e^{-t}\) in the numerator ensures that the limit approaches 0, as the exponential decay outpaces any polynomial decay, satisfying the condition for \(e^{-t} = o\left(\frac{1}{t^2}\right)\).
+
+
+\subsection*{Part d}
+
+
+
+Bounded by a constant multiple of $\epsilon$.
+
+\newpage
+
+\section*{Problem 2}
+
+\subsection*{Part a}
+
+The change in the solution $\Delta x$ due to the perturbation in $b$ can be calculated using the formula $\Delta x = A^{-1} \Delta b$:
+
+\[
+\Delta x = 
+\begin{bmatrix}
+1 - 10^{10} & 10^{10} \\
+-10^{10} & 1 + 10^{10}
+\end{bmatrix}
+\begin{bmatrix}
+\Delta b_1 \\
+\Delta b_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+-(10^{10} - 1)\Delta b_1 + 10^{10}\Delta b_2 \\
+-10^{10}\Delta b_1 + (10^{10} + 1)\Delta b_2
+\end{bmatrix}
+\]
+
+
+
+
+
+
+\end{document}

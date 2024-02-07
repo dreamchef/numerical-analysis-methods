@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="46b2ac67-8049-4879-beae-3fe345b7e27b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 1/Lab 1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 1/Lab 1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
