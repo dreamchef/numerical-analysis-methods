@@ -61,8 +61,7 @@ After repeated applications of L'Hopital's Rule, the exponential term \(e^{-t}\)
 
 \subsection*{Part d}
 
-
-
+The integral is bounded by a constant multiple of $\epsilon$: $k \epsilon$ which is greater than or equal to the largest slice of the integral (which is that closest to zero). Therefore, the integral is $O(\epsilon)$.
 Bounded by a constant multiple of $\epsilon$.
 
 \newpage
@@ -90,8 +89,115 @@ The change in the solution $\Delta x$ due to the perturbation in $b$ can be calc
 \end{bmatrix}
 \]
 
+\subsection*{Part b}
+
+The norm of A is 1, and the norm of A inverse is $2 \cdot 10^10$. See norm.py in the Homework 2 folder of the Git repository.
+
+So the condition number is $1 \cdot 2 \cdot 10^{10} = 2 \cdot 10^{10}$.
+
+\section*{Part c}
+
+The error in the solution is bounded above by $2 \cdot 10^{10} * P_r$, where $P_r$ is the relative perturbation $\frac{||\Delta b||}{||b||}$. 
 
 
+If $ \Delta b = \begin{bmatrix} p \times 10^{-5} \\ q \times 10^{-5} \end{bmatrix} $ then the upper bound is 
+
+$$2 \cdot 10^{10} \cdot \sqrt{(p^2 + q^2)} \cdot 10^{-5} = 2\sqrt{(p^2 + q^2)} \cdot 10^5$$
+
+With the Euclidean norm, the behavior is not qualitatively different when the perturbations are the same. Given both components have same true value, equal perturbations are more likely.
+
+\newpage
+
+\section*{Problem 3}
+
+\subsection*{Part a}
+
+Given the function \( f(x) = e^x - 1 \), the relative error can be bounded by the function's condition number \( k_f(x) \):
+
+\[
+\frac{|f(x) - \tilde{f}(x)|}{|f(x)|} \leq k_{f}(x) \frac{|x - \tilde{x}|}{|x|}
+\]
+
+where the condition number \( k_f(x) \) is defined as:
+
+\[
+k_{f}(x) = \left| \frac{x f'(x)}{f(x)} \right|
+\]
+
+For the given function \( f(x) = e^x - 1 \), the condition number becomes:
+
+\[
+k_{f}(x) = \left| \frac{x e^x}{e^x - 1} \right|
+\]
+
+Evaluating the limit as \( x \) approaches 0:
+
+\[
+\lim_{x \to 0} \frac{x e^x}{e^x - 1} = \lim_{x \to 0} \frac{e^x + x e^x}{e^x} = \lim_{x \to 0} (1 + x) = 1
+\]
+
+\subsection*{Part b}
+
+When \( x \) is very large:
+
+\[
+\lim_{x \to \infty} \frac{x e^x}{e^x - 1} = \lim_{x \to \infty} (1 + x) = \infty
+\]
+
+This indicates that the algorithm is stable due to the condition number when \( x \) is not large.
+
+\subsection*{Part c}
+
+The algorithm gives 8 correct digits, this is expected because the error is on the same order of magnitude as the relative error for \( x \) and \( f(x) \).
+
+\subsection*{Part d}
+
+We seek a polynomial \( P_n \) such that:
+
+\[
+\frac{|f - \tilde{f}|}{|f|} \leq 10^{-16}
+\]
+
+The polynomial approximation \( P(x) \) is given by:
+
+\[
+P(x) = (e^{x_0} - 1) + (x - x_0)e^{x_0} + \frac{(x - x_0)^2 e^{x_0}}{2!} + \ldots
+\]
+
+The second-degree polynomial approximation \( P_2 \) is:
+
+\[
+P_2 = f(0) + f'(0) x
+\]
+
+\section*{Problem 4}
+
+\section*{Part a}
+
+Create vector $t$ from $0$ to $pi$ incrementing by $pi/30$, vector y equal to $\cos(1)$. Write code that evaluates the specified sum and prints the result.
+
+\begin{verbatim}
+	The sum is: -23.915381134014112
+\end{verbatim}
+
+See t\_y\_sum.py in Git repository. The code simply creates vectors with np.arane() and evaluates with np.sum().
+
+The true value is -2 (as can be trivially found with a single application of IBP). 
+
+The closest lowest error we can achieve using this algorithm requires us to to use a dt of pi/2. This error is due to cancellation from to the negative terms.
+
+\newpage
+
+\section*{Part b}
+
+Plot a parametric curve for $x(\theta)$ with given parameters. Adjust the scale so that the axes have the same scale. In a second figure, plot 10 curves with varying parameters.
+
+\includegraphics[width=0.5\textwidth]{screenshot2.png}
+
+
+\includegraphics[width=0.5\textwidth]{screenshot1.png}
+
+See wavy\_circles.py in Git repository.
 
 
 
