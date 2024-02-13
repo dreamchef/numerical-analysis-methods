@@ -48,13 +48,13 @@ def fixedpt(f,x0,tol,Nmax):
        if (abs(x1-x0) <tol):
           xstar = x1
           ier = 0
-          return [xstar,ier, xstar_vec]
+          return xstar_vec
        x0 = x1
 
     xstar = x1
     xstar_vec.append(x1)
     ier = 1
-    return [xstar, ier, xstar_vec]
+    return xstar_vec
     
 
 driver()

@@ -35,13 +35,13 @@ def fixedptVec(f,x0,tol,Nmax):
         if (abs(x1-x0) <tol):
             xstar = x1
             ier = 0
-            return [xstar,ier, xstar_vec]
+            return xstar_vec
         x0 = x1
 
     xstar = x1
     xstar_vec.append(x1)
     ier = 1
-    return [xstar, ier, xstar_vec]
+    return xstar_vec
 
 def fixed_point_method(g,x0,a,b,tol,nmax,vrb=False):
     # Fixed point iteration method applied to find the fixed point of g from starting point x0
