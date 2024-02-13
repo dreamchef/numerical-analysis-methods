@@ -5,38 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46b2ac67-8049-4879-beae-3fe345b7e27b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/solvers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APPM4600 HW2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APPM4600 HW2.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework/hw1-2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework/hw1-3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Homework/hw1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 1 4.2.1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 1 4.2.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 1 4.2.2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab 1 4.2.3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/bisection_general_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 3/cubic_polynomial_bisection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bisection_example.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classifier_gpu.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compare_polynomial_with_approx.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_bound_taylor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixed_point_iteration_script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixedpt_with_vector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw1-2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw1-3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/naive_quadratic_solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/naive_quadratic_solver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newton_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/newton_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newton_fancy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prini.py" beforeDir="false" afterPath="$PROJECT_DIR$/prini.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relative_condition_number.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvers.py" beforeDir="false" afterPath="$PROJECT_DIR$/solvers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
