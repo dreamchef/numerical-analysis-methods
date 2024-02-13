@@ -1,25 +1,27 @@
 from orderOfConvergence import order
 from solvers import fixedptVec
 import numpy as np
+from utils import printFloatVec,lambdaToString
 import inspect
 
 f_vec = [
-    lambda x: np.cos(x)*(x**3 + x**2),
-    lambda x: np.sin(x)*(x**3 + x**2),
-    lambda x: np.sin(x)*x**3 + np.cos(x)*x**2
+    lambda x: x**2,
+    lambda x: x**2 - x**4
 ]
 
 for f in f_vec:
-    vec = fixedptVec(f, 0.5, 0.001, 100)
 
-    print("\nFixed point iteration:")
+    print('-'*20)
+    print(lambdaToString(f),'\n')
+
+    print("Fixed point iteration:")
+    vec = fixedptVec(f, 0.5, 0.001, 100)
+    printFloatVec(vec,spacing=2)
 
     print(vec)
 
-    for c in vec:
+    print("Order of convergence (limit):")
+    orderVec = order(vec, 0)
+    printFloatVec(orderVec,spacing=2)
 
-        print("%5d" % c, end='')
-
-
-
-print(order(vec, 100, 0))
+    print(orderVec)

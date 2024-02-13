@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46b2ac67-8049-4879-beae-3fe345b7e27b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/Lab 4/fixedpt_with_vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/Lab 4/fixedpt_with_vector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab4.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orderOfConvergence.py" beforeDir="false" afterPath="$PROJECT_DIR$/orderOfConvergence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/solvers.py" beforeDir="false" afterPath="$PROJECT_DIR$/solvers.py" afterDir="false" />

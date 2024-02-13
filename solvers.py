@@ -19,7 +19,7 @@ def bisection2(f, a, b, tol=1e-5, max_iter=1000):
 
     return c
 
-def fixedptVec(f,x0,tol,Nmax):
+def fixedptVec(f,x0=0,tol=0.001,Nmax=100):
 
     ''' x0 = initial guess'''
     ''' Nmax = max number of iterations'''
