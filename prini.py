@@ -16,4 +16,3 @@ class prini:
          print(self.text, '%0.4f + %0.4fi' % (self.val.real, self.val.imag))
       else:
         print('type not supported')
-        

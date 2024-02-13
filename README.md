@@ -2,7 +2,7 @@ Daniel
 
 This is repository for codes in APPM4600.
 
-Codes in homeworks and labs are stored in their folders:
+Solution codes to homeworks and labs are stored according to the following structure.
 
 Repo
 -Homework
@@ -15,5 +15,4 @@ Repo
 -Code file
 	...
 	
-	
-Codes that are likely to be re-used are stored in the main folder because they don't belong to any specific assignments. I'll basically be creating my own package for the course in this way.
+However edited copies of these as well as other codes are stored in the main folder where they can more easily reference each other, as I build my codebase.
