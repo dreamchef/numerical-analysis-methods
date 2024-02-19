@@ -14,5 +14,5 @@ Repo
 -Code file
 -Code file
 	...
-	
+
 However edited copies of these as well as other codes are stored in the main folder where they can more easily reference each other, as I build my codebase.

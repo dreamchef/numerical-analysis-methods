@@ -1,8 +1,6 @@
 from orderOfConvergence import order
 from solvers import fixedptVec
-import numpy as np
-from utils import printFloatVec,lambdaToString
-import inspect
+from visualization import printFloatVec,lambdaToString
 
 f_vec = [
     lambda x: x**2,
@@ -18,10 +16,10 @@ for f in f_vec:
     vec = fixedptVec(f, 0.5, 0.001, 100)
     printFloatVec(vec,spacing=2)
 
-    print(vec)
+    #print(vec)
 
-    print("Order of convergence (limit):")
-    orderVec = order(vec, 0)
-    printFloatVec(orderVec,spacing=2)
+    #print("Order of convergence (limit):")
+    #orderVec = order(vec, 0)
+    #printFloatVec(orderVec,spacing=2)
 
-    print(orderVec)
+    #print(orderVec)
