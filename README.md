@@ -4,7 +4,7 @@
 
 Collection of methods for numerical analysis and scientific computing, including numerical root-finders, numerical integration, linear algebra, and data visualization.
 
-# linearAlgebra.py
+# Linear Algebra
 
 ## Dot Product
 
