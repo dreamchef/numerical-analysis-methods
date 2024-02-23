@@ -1,6 +1,9 @@
 import numpy as np
+from math import e as E
 
-number = 2
+number = 2**(E-1)
+
+print(number)
 
 print(np.binary_repr(np.float32(number).view(np.int32), width=32))
 
