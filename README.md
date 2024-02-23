@@ -18,11 +18,15 @@ w = [0,1]
 dp = dotProduct(y,w,n)
 print('the dot product is : ', dp)
 ```
+
 Output:
+
 ```
 the dot product is :  0.0
 ```
+
 ## Matrix-Vector Multiplication
+
 ```python
 from linearAlgebra import *
 
@@ -33,13 +37,19 @@ vec = [0,1]
 prod = matVecMult(mat,vec,n)
 print('the product is : ', prod)
 ```
+
 Output:
+
 ```
 the product is :  [0.0, 1.0]
 ```
+
 # Rooting-Finding: Numerical Solvers
+
 Contained in solvers.py
+
 ## Fixed Point Iteration
+
 ```python
 from solvers import *
 from visualization import *
@@ -50,20 +60,27 @@ vec = fixedptVec(f, 0.5, 0.001, 100) # function, start point, tolerance, max ite
 
 printFloatVec(vec,spacing=2) # improved list print function (see below)
 ```
+
 Output:
+
 ```
 --------------------
 f(x) = lambda x: x**2, 
 
 Fixed point iteration:
-0.25           0.0625         0.00391        1.53e-05       2.33e-10       
+0.25           0.0625         0.00391        1.53e-05       2.33e-10     
 ```
+
 Additional solvers include:
+
 - Bisection
 - Newton's Method
+- Hybrid Bisection -> Newton solver (in progress)
 
 # Visualization Methods
+
 ## Print Vector
+
 ```python
 from solvers import *
 from visualization import *
@@ -83,19 +100,21 @@ for f in f_vec: # loop through functions and compute roots
 
 	printFloatVec(vec,precision=3,spacing=2,newLine=True)
 ```
+
 Output:
+
 ```
 --------------------
 f(x) = lambda x: x**2, 
 
 Fixed point iteration:
-0.25           0.0625         0.00391        1.53e-05       2.33e-10       
+0.25           0.0625         0.00391        1.53e-05       2.33e-10     
 
 --------------------
 f(x) = lambda x: x**2 - x**4 
 
 Fixed point iteration:
-0.188          0.0339         0.00115        1.32e-06       1.74e-12       
+0.188          0.0339         0.00115        1.32e-06       1.74e-12     
 
 ```
 

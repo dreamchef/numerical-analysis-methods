@@ -1,13 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# def bisectionNewtonHybrid(f,a,b,tol=1e-5,Nmax=1000):
+def bisectionNewtonHybrid(f,fp,a,b,tol=1e-5,Nmax=1000):
 
-#     # compute basin of convergence for Newton's method
-#     basin = newtonBasin()
+    fa = f(a)
+    fb = f(b)
+    if (fa*fb>0):
+        ier = 1 # error code 1
+        return [[], a, ier]
 
+    guess = b
 
-# def newtonBasin(f,)
+    [p,pstar,info,it] = newton(f,fp,guess,1e-10,Nmax=100)
+
+    return p, pstar, 0 # error code 0
 
 def bisection2(f, a, b, tol=1e-5, max_iter=1000):
     print(a,b)
