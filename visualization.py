@@ -17,7 +17,7 @@ def lambdaToString(lambda_func):
         arg_names = code_obj.co_varnames[:code_obj.co_argcount]
         source_lines = inspect.getsourcelines(lambda_func)[0]
         lambda_line = source_lines[-1]
-        lambda_expr = lambda_line.split("lambda", 1)[1].strip()
+        lambda_expr = lambda_line.split("lambda", 1)[0]
 
         return f"f({', '.join(arg_names)}) = lambda {lambda_expr}"
 

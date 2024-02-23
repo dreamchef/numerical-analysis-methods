@@ -1,5 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
+# def bisectionNewtonHybrid(f,a,b,tol=1e-5,Nmax=1000):
+
+#     # compute basin of convergence for Newton's method
+#     basin = newtonBasin()
+
+
+# def newtonBasin(f,)
+
 def bisection2(f, a, b, tol=1e-5, max_iter=1000):
     print(a,b)
     if f(a) * f(b) >= 0:
