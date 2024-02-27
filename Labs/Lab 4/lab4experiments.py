@@ -1,4 +1,4 @@
-from orderOfConvergence import order
+from modules.orderOfConvergence import order
 from solvers import fixedptVec
 from visualization import printFloatVec,lambdaToString
 

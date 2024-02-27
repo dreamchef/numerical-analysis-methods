@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
+
 class my2DPlot:
     def __init__(self,f,a,b):
         x = np.arange(a,b,0.001) # create range of points

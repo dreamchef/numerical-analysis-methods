@@ -1,4 +1,5 @@
 import inspect
+
 def printFloatVec(vec, precision=3, spacing=0, newLine=True):
 
     const_spacing = 8
