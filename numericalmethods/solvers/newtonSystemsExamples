@@ -134,7 +134,7 @@ def SlackerNewton(x0,tol,Nmax):
         x1 = x0 - np.linalg.solve(J,F);
         xlist[its+1]=x1;
 
-        alpha = np.log((norm(x1-xlist[its]))/(norm(xlist[its]-xlist[its-1])))
+        alpha = -np.log((norm(x1-xlist[its]))/(norm(xlist[its]-xlist[its-1])))
 
         print('the order is',alpha)
 
