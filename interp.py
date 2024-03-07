@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 def driver():
 
-    f = lambda x: 1/(1+(10*x)**2)
+    f = lambda x: np.sinc(5*x)
 
-    N = 6
+    N = 17
     ''' interval'''
     a = -1
     b = 1
