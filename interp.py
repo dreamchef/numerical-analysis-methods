@@ -16,14 +16,14 @@ def driver():
     b = 1
    
     ''' create equispaced interpolation nodes'''
-    xint = np.linspace(a,b,N+1)
+    xint = np.array(chebyshev_nodes(N+1,a,b))
     
     ''' create interpolation data'''
     yint = f(xint)
     
     ''' create points for evaluating the Lagrange interpolating polynomial'''
     Neval = 1000
-    xeval = np.linspace(a,b,Neval+1)
+    xeval = np.array(chebyshev_nodes(Neval+1,a,b))
     yeval_l= np.zeros(Neval+1)
     yeval_dd = np.zeros(Neval+1)
   
