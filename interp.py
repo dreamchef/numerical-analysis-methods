@@ -2,16 +2,18 @@ import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 
+
+
+
+
 def driver():
 
-
-    f = lambda x: np.exp(x)
+    f = lambda x: 1/(1+(10*x)**2)
 
     N = 3
     ''' interval'''
-    a = 0
+    a = -1
     b = 1
-   
    
     ''' create equispaced interpolation nodes'''
     xint = np.linspace(a,b,N+1)
@@ -60,6 +62,12 @@ def driver():
     plt.legend()
     plt.show()
 
+
+
+
+
+
+
 def eval_lagrange(xeval,xint,yint,N):
 
     lj = np.ones(N+1)
@@ -76,6 +84,9 @@ def eval_lagrange(xeval,xint,yint,N):
   
     return(yeval)
   
+
+
+
     
 
 
@@ -88,6 +99,11 @@ def dividedDiffTable(x, y, n):
                                      (x[j] - x[i + j]));
     return y;
     
+
+
+
+
+
 def evalDDpoly(xval, xint,y,N):
     ''' evaluate the polynomial terms'''
     ptmp = np.zeros(N+1)
