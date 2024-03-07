@@ -64,8 +64,12 @@ def driver():
 
 
 
+def chebyshev_nodes(n, a=-1, b=1):
 
-
+    i = np.arange(n)
+    x = np.cos((2*i + 1) / (2*n) * np.pi)
+    # Map from [-1, 1] to [a, b]
+    return 0.5 * (a + b) + 0.5 * (b - a) * x
 
 
 def eval_lagrange(xeval,xint,yint,N):
