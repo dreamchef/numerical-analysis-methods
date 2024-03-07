@@ -10,7 +10,7 @@ def driver():
 
     f = lambda x: 1/(1+(10*x)**2)
 
-    N = 3
+    N = 6
     ''' interval'''
     a = -1
     b = 1
