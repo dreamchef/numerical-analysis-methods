@@ -34,7 +34,7 @@ def driver():
         return np.transpose(Jfun)@Ffun;
 
     # Apply steepest descent:
-    x0=np.array([3,3]);
+    x0=np.array([0.1,0.1,-0.1]);
     tol=1e-12;
     nmax=1000;
     (r,rn,nf,ng)=steepest_descent(q,Gq,x0,tol,nmax);
@@ -93,7 +93,7 @@ def driver():
 
     ################################################################################
     # Apply steepest descent to finding the minima given initial conditions and tolerance
-    x0=np.array([-1,-1]);
+    x0=np.array([1,1,-1]);
     tol=1e-6;
     nmax=1000;
     (r,rn,nf,ng)=steepest_descent(fun,Gfun,x0,tol,nmax);

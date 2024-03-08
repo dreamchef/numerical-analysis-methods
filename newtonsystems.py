@@ -10,7 +10,7 @@ def driver():
     x0 = np.array([0.1, 0.1, -0.1])
 
     Nmax = 100
-    tol = 1e-10
+    tol = 1e-6
 
     t = time.time()
     for j in range(20):
@@ -30,24 +30,15 @@ def driver():
     plt.plot(np.arange(its),np.log10(err2[0:its]));
     plt.show();
 
-
 def evalF(x):
-
-    F = np.zeros(3)
-
-    F[0] = 3*x[0]-math.cos(x[1]*x[2])-1/2
-    F[1] = x[0]-81*(x[1]+0.1)**2+math.sin(x[2])+1.06
-    F[2] = np.exp(-x[0]*x[1])+20*x[2]+(10*math.pi-3)/3
-    return F
+        return np.array([x[0]+np.cos(x[0]*x[1]*x[2]) - 1,
+                        (1-x[0])**(1/4)+x[1]+0.05*x[2]**2 - 0.15*x[2] - 1,
+                        -x[0]**2 - 0.1*x[1]**2 + 0.01*x[1] + x[2] - 1]);
 
 def evalJ(x):
-
-
-    J = np.array([[3.0, x[2]*math.sin(x[1]*x[2]), x[1]*math.sin(x[1]*x[2])],
-        [2.*x[0], -162.*(x[1]+0.1), math.cos(x[2])],
-        [-x[1]*np.exp(-x[0]*x[1]), -x[0]*np.exp(-x[0]*x[1]), 20]])
-    return J
-
+    return np.array([[-x[1]*x[2]*np.sin(x[0]*x[1]*x[2]) + 1, -x[0]*x[2]*np.sin(x[0]*x[1]*x[2]), -x[0]*x[1]*np.sin(x[0]*x[1]*x[2])],
+                    [-0.25*(1 - x[0])**(-0.75), 1, 0.1*x[2] - 0.15],
+                    [-2*x[0], 0.01 - 0.2*x[1], 1]]);
 
 def Newton(x0,tol,Nmax):
 

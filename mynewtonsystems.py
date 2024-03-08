@@ -6,39 +6,38 @@ from numpy.linalg import norm
 import matplotlib.pyplot as plt
 import sympy
 
-f = lambda x,y: x**2 + y**2 - 4
-g = lambda x,y: np.exp(x) + y - 1
 
-x,y = 1,1
+def F(x):
+        return np.array([x[0]+np.cos(x[0]*x[1]*x[2]) - 1,
+                        (1-x[0])**(1/4)+x[1]+0.05*x[2]**2 - 0.15*x[2] - 1,
+                        -x[0]**2 - 0.1*x[1]**2 + 0.01*x[1] + x[2] - 1]);
 
-J = lambda x,y: [[2*x, 2*y],
-                    [np.exp(x), 1]]
+def J(x):
+    return np.array([[-x[1]*x[2]*np.sin(x[0]*x[1]*x[2]) + 1, -x[0]*x[2]*np.sin(x[0]*x[1]*x[2]), -x[0]*x[1]*np.sin(x[0]*x[1]*x[2])],
+                    [-0.25*(1 - x[0])**(-0.75), 1, 0.1*x[2] - 0.15],
+                    [-2*x[0], 0.01 - 0.2*x[1], 1]]);
+
 
 # J_broyden = lambda x,y:
 
 
-for init in [[1,1], [1,-1], [0,0]]:
+for init in [[0.1,0.1,-0.1]]:
 
     print('\nINITIAL CONDIITONS', init)
 
-    x = init[0]
-    y = init[1]
+    x = init
 
     # Newton's method
 
-    print('\nVANILLA NEWTON\n', x, y)
+    print('\nVANILLA NEWTON\n', x)
 
 
     try:
 
         for i in range(20):
-            vec = [x,y] - np.matmul(inv(J(x,y)), [f(x,y), g(x,y)])
+            x = x - np.matmul(inv(J(x)), F(x))
 
-            x = vec[0]
-
-            y = vec[1]
-
-            print(x,y)
+            print(x)
 
     except:
 
@@ -49,45 +48,45 @@ for init in [[1,1], [1,-1], [0,0]]:
 
     # Lazy Newton
         
-    x = init[0]
-    y = init[1]
+    # x = init[0]
+    # y = init[1]
         
 
 
-    print('\nLAZY\n', x, y)
+    # print('\nLAZY\n', x, y)
 
-    # calc J once
+    # # calc J once
 
-    J_ = J(x,y)
+    # J_ = J(x,y)
 
 
-    try:
+    # try:
 
-        for i in range(50):
-            vec = [x,y] - np.matmul(inv(J_), [f(x,y), g(x,y)])
+    #     for i in range(50):
+    #         vec = [x,y] - np.matmul(inv(J_), [f(x,y), g(x,y)])
 
-            x = vec[0]
+    #         x = vec[0]
 
-            y = vec[1]
+    #         y = vec[1]
 
-            print(x,y)
+    #         print(x,y)
 
-    except:
+    # except:
         
-        print('Error')
+    #     print('Error')
         
 
 
-    x,y = init
+    # x,y = init
 
-    print('\nBROYDEN\n', x, y)
+    # print('\nBROYDEN\n', x, y)
 
-    for i in range(50):
+    # for i in range(50):
 
-        vec = [x,y] - np.matmul(inv(J_broyden(x,y)), [f(x,y), g(x,y)])
+    #     vec = [x,y] - np.matmul(inv(J_broyden(x,y)), [f(x,y), g(x,y)])
 
-        x = vec[0]
+    #     x = vec[0]
 
-        y = vec[1]
+    #     y = vec[1]
 
-        print(x,y)
+    #     print(x,y)
