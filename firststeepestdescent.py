@@ -31,9 +31,9 @@ def driver():
         return np.transpose(Jfun) @ Ffun
 
     # Steepest descent
-    x0 = np.array([0.1, 0.1, -0.1])  # Initial condition for 3 variables
-    tol = 1e-12
-    nmax = 1000
+    x0 = np.array([0, 0, 0])  # Initial condition for 3 variables
+    tol = 5e-6
+    nmax = 3000
     (r, rn, nf, ng) = steepest_descent(q, Gq, x0, tol, nmax)
 
     # Note: The plotting sections that were present in the original code
@@ -82,22 +82,26 @@ def steepest_descent(f, Gf, x0, tol, nmax, type='swolfe', verb=True):
     xn = x0; # current iterate
     rn = np.array([x0]); # list of iterates
     fn = f(xn); nf = 1; # function eval
-    pn = -Gf(xn); ng = 1; # gradient eval
+
+    # Compute the gradient only once at the beginning, using the initial x0
+    initial_pn = -Gf(xn); ng = 1; # gradient eval
 
     if verb:
         print("|--n--|-alpha-|------|xn|------|---|f(xn)|---|---|Gf(xn)|---|")
         print("|-----|-------|-------------------|-----------|--------------|")
 
     n = 0;
-    while n <= nmax and np.linalg.norm(pn) > tol:
+    while n <= nmax and np.linalg.norm(initial_pn) > tol:
         if verb:
             # Updated to display all three components of xn
-            print(f"|{n:5d}|{alpha:7.5f}|{xn[0]:7.4f}, {xn[1]:7.4f}, {xn[2]:7.4f}|{np.abs(fn):11.7f}|{np.linalg.norm(pn):14.7f}|")
+            print(f"|{n:5d}|{alpha:7.5f}|{xn[0]:7.4f}, {xn[1]:7.4f}, {xn[2]:7.4f}|{np.abs(fn):11.7f}|{np.linalg.norm(initial_pn):14.7f}|")
 
-        (xn, alpha, nfl, ngl) = line_search(f, Gf, xn, pn, type, mxbck, c1, c2);
-        nf += nfl; ng += ngl; #update function and gradient eval counts
+        # Use the initial search direction for every iteration
+        (xn, alpha, nfl, ngl) = line_search(f, Gf, xn, initial_pn, type, mxbck, c1, c2);
+        nf += nfl; # ng not incremented here as gradient is not recalculated
+
         fn = f(xn); #update function evaluation
-        pn = -Gf(xn); # update gradient evaluation
+        # Do not update pn here as we're using the initial gradient for all steps
         n += 1;
         rn = np.vstack((rn, xn)); #add xn to list of iterates
 
