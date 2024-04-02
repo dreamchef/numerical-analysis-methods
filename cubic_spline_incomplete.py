@@ -4,7 +4,6 @@ import math
 from numpy.linalg import inv 
 from numpy.linalg import norm
 
-
 def driver():
     
     f = lambda x: np.exp(x)
