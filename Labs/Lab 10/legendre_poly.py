@@ -37,6 +37,11 @@ def driver():
     plt.plot(xeval,pval);
     plt.show()
 
+    # plt.plot(xeval, fex, 'true')
+    # plt.plot(xeval, pval, 'approximation')
+    # plt.legend()
+    # plt.show()
+
     plt.figure();
     err = abs(pval-fex)
     plt.plot(xeval,np.log10(err)); 
